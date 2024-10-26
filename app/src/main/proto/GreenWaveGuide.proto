@@ -1,0 +1,35 @@
+syntax = "proto3";
+   //绿波引导
+message GreenWaveGuide {
+    //方向
+    enum Direction {
+        LEFT = 0;
+        FRONT = 1;
+        RIGHT = 2;
+    }
+    //红绿灯状态
+    enum TrafficLightStatue {
+        UNKNOWN = 0;
+        GREEN = 1;
+        YELLOW = 2;
+        RED = 3;
+    }
+    //车辆面对红绿灯,红绿灯所在的方位,即红绿灯在车辆 左/前/右
+    Direction driection = 1;
+    //红绿灯状态
+    TrafficLightStatue statue = 2;
+    //当前时间
+    int32 time = 3;
+    //建议最大速度
+    int32 max = 4;
+    //建议最小速度
+    int32 min = 5;
+    //红绿灯id,实际为红绿灯所在路口的id
+    int32 id = 6;
+    //是否是当前车道的灯态 
+    bool isCurrent = 7;
+}
+
+message GreenWaveGuideList{
+    repeated GreenWaveGuide greenWaveGuide = 1;
+}

@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+import "Position.proto";
+
+// 场景元数据,当前数据规划中,还未开发
+message Metadata {
+
+    enum Direction {
+        DIRECTION_UNKNOWN = 0; // 未知
+        FRONT = 1; // 正前
+        REAR  = 2;  // 正后
+        LEFT_FRONT = 3; // 左前
+        LEFT_REAR = 4; // 左后
+        RIGHT_FRONT = 5; // 右前
+        RIGHT_REAR = 6;  // 右后
+    }
+
+    enum Type {
+        TYPE_UNKNOWN = 0; // 未知
+        Vehicle = 1;   // 机动车
+        Non_Motor = 2;  // 非机动车
+        MAN =  3;       // 人
+    }
+    
+     // 交通参与者唯一id,使用utf-8
+     string UUID = 1;
+     
+    // 交通参与者类型
+     Type type = 2;
+
+     // 交通参与者的位置信息
+     Position position = 3;
+     // 交通参与者相对于主车的方位
+     Direction direction = 4;
+     // 交通参与者的速度
+     float speed = 5;
+     // 交通参与者的航向角,以正北为0度,顺时针 0-360
+     float heading = 6;
+     
+     // 交通参与者长宽高,单位:米
+     float   length = 7;
+     float   width = 8;
+     float   height = 9;
+
+    // 交通参与者的相对主车距离,单位:米
+     float  relativeDistance = 10;
+     float  relativeDistanceX = 11;
+     float  relativeDistanceY = 12;
+}
+
+message MetadataList{
+    repeated Metadata metadata = 1;
+}

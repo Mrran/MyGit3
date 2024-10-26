@@ -1,0 +1,6 @@
+syntax = "proto3";
+ //附加信息,如果需要加入新的信息,可以写入此字段
+  message Extra {
+    string key = 1;
+    string value = 2;
+}

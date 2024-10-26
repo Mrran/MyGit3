@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "Hmi.proto";
+import "Head.proto";
+
+// author: zhangyan19 peiwangjing loupenghui 2021年
+
+// 最外层消息
+message Icdc2Hmi{
+    Head head = 1; // 消息头
+    Hmi  hmi = 2; // HMI消息
+}

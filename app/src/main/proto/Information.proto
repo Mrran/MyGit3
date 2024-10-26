@@ -1,0 +1,5 @@
+syntax = "proto3";
+//提示音消息,可以忽略,参考场景消息
+message Information {
+    int32 voiceType = 1;
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/btn_left"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="38dp"
+        android:background="@drawable/capsule_btn_left_selected"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="#112141"
+        android:text="左"/>
+
+    <!--<View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:background="@mipmap/bg_capsule_divider"/>-->
+
+    <Button
+        android:id="@+id/btn_middle"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="38dp"
+        android:background="@drawable/capsule_btn_middle_normal"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="#a7b9ea"
+        android:text="中"/>
+
+    <!--<View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@mipmap/bg_capsule_divider"/>-->
+
+    <Button
+        android:id="@+id/btn_right"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="38dp"
+        android:background="@drawable/capsule_btn_right_normal"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="#a7b9ea"
+        android:text="右"/>
+
+</LinearLayout>

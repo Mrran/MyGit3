@@ -1,0 +1,13 @@
+syntax = "proto3";
+import "Station.proto";
+//实时站点信息
+message StationInformation {
+   // 当前站点
+   Station current = 1;
+   // 下一站点
+   Station next = 2;
+   // 车辆距离下一站点的实时距离,点位:米
+   double nextStationDisntance = 3;
+   // 车辆基于站点的动作:  -1 未知;1 进站;2 出站; 3 行驶在两个站点之间
+   int32 action = 4;
+}

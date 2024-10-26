@@ -1,0 +1,18 @@
+syntax = "proto3";
+import "Position.proto";
+message TrafficLight {
+    //字段红绿灯id
+    string id = 1;
+    //红绿灯utc时间
+    uint64 utcTime = 2;
+    //红绿灯方向
+    float direction = 3;
+    //红绿灯上行还是下行
+    int32 director = 4;
+    //红绿灯位置信息，经纬度，海拔
+    Position position = 5;
+    //红绿灯状态 红、黄、绿
+    int32 state = 6;
+    //红绿灯剩余时间
+    int32 time = 7;
+}

@@ -1,0 +1,29 @@
+syntax = "proto3";
+import "Position3D.proto";
+// 主车附近交通参与者信息,参考SSM.xlxs Sbox数据结构说明.docx
+message TrafficParticipant {
+
+    // 交通参与者类型定义
+    enum ParticipantType {
+      ParticipantType_unknown = 0; 
+	  ParticipantType_motor	= 1; // 车辆
+	  ParticipantType_non_motor	= 2; // 自行车
+	  ParticipantType_pedestrian = 3; // 行人
+	  ParticipantType_rsu = 4;   
+    }
+    
+    string ptcId = 1;            // 交通参者与id
+    ParticipantType type = 2;    // 交通参与者类型
+    int32 timeStampDSecond = 3;  // 时间戳,单位:秒
+    Position3D partpos = 4;      // 位置信息
+    int32    speed = 5;          // 速度，厘米/秒为单位 207 （表示2.07米/秒）
+    int32    heading = 6;        // 航向角，车辆航向与正北方向顺时针夹角。0.01度为单位,27567 （表示与基准方向夹角为275.67度）
+
+    int32    width = 7;   // 单位:毫米 1100（1.1米）
+    int32    length = 8;  // 单位:毫米 1110（1.11米）
+    int32    height = 9;  // 单位:毫米 1111（1.111米）  
+}
+// 交通参与者列表
+message TrafficParticipants {
+    repeated TrafficParticipant list = 1;
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/siv_event"
+        android:layout_width="200dp"
+        android:layout_height="178dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!--    android:background="@mipmap/name_bg"-->
+    <LinearLayout
+        android:id="@+id/llyt_warning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal"
+        android:layout_marginStart="0dp"
+        android:paddingTop="13dp"
+        android:paddingBottom="13dp"
+        android:paddingStart="11dp"
+        android:paddingEnd="21dp"
+        android:visibility="invisible"
+        android:orientation="vertical"
+        android:background="@mipmap/name_bg2">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/warning_icon2" />
+
+        <TextView
+            android:id="@+id/tvSceneName"
+            android:layout_width="wrap_content"
+            android:maxWidth="70dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:textColor="@color/warning"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+
+</FrameLayout>

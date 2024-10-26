@@ -1,0 +1,8 @@
+syntax = "proto3";
+import "Extra.proto";
+//驾驶状态
+message DriveState {
+    //驾驶状态,0 表示手动驾驶,1表示自动驾驶
+    int32 driveStatue = 1;
+    repeated Extra extra = 2;
+}

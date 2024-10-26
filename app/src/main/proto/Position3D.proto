@@ -1,0 +1,7 @@
+syntax = "proto3";
+ // 定义一个位置信息，坐标系 WGS84 大地坐标系
+  message Position3D {
+    int64 latitude = 1;  // 1/10th micro degrees 302410033 表示北纬30.2410033度
+    int64 longitude = 2; // 1/10th micro degrees 1202448229 表示东经120.2448229度
+    int64 altitude = 3;  // 10 cm units 改为以厘米为单位 1453 表示高位为14.53米
+}

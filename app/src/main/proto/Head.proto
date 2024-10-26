@@ -1,0 +1,8 @@
+syntax = "proto3";
+message Head {
+   uint32   deviceType = 1; // 0: OBU 1：RSU
+   string   deviceId = 2; // 车牌号
+   uint64   timestamp = 3; // utc 时间戳 单位：毫秒
+   string   version = 4; // 协议版本 2.0
+   int32    communicationMode = 5; // OBU通信模式 1、PC5 2、EUHT 3、PC5 & EUHT 4、未知
+ }

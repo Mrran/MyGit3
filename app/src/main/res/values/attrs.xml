@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="RtvAttribute">
+        <attr name="rtv_type" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="setting_switch">
+        <attr name="name" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="capsule_button">
+        <attr name="show_middle" format="boolean" />
+        <attr name="left_name" format="string" />
+        <attr name="middle_name" format="string" />
+        <attr name="right_name" format="string" />
+    </declare-styleable>
+
+</resources>

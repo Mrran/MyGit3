@@ -1,0 +1,37 @@
+syntax = "proto3";
+import "Guidepost.proto";
+import "GreenWaveGuide.proto";
+import "Extra.proto";
+import "Metadata.proto";
+
+message NationalStandard {
+
+    enum MsgType {
+        GUIDEPOST = 0; //路牌消息,比如限速,施工,危险路段
+        GREEN_WAVE_GUIDE = 1; // 绿波引导
+        EMERGENCY_VEHICLE_REMINDER = 2; //紧急车辆提醒
+        LANE_CHANGE_WARNING = 3;//变道预警
+        FORWARD_COLLISION_WARNING = 4;//前向碰撞预警
+        INTERSECTION_WARNING = 5; //交叉路口预警
+        TURN_LEFT_AUXILIARY = 6; //左转辅助
+        BLIND_SPOT = 7;//盲区
+        REVERSE_OVERTAKING_WARNING = 8;//逆向超车预警
+        EMERGENCY_BRAKE_WARNING = 9;//紧急制动预警
+        ABNORMAL_VEHICLE_WARNING = 10;//异常车辆提醒
+        VEHICLE_LOSS_WARNING = 11;//车辆失控提醒
+        RED_LIGHT_WARNING = 12;//闯红灯预警
+        VULNERABLE_TRAFFIC_PARTICIPANT_COLLISION_WARNING = 13;//弱势交通参与者碰撞预警
+        CONGESTION_WARNING_AHEAD = 14;//前方拥堵提醒
+      
+    }
+    MsgType msgType = 1;  // 消息编号,对应国标下的多种场景进行编号
+    oneof message{
+	    Guidepost guidepost = 2; // 路牌提示消息,可选
+    	GreenWaveGuideList greenWaveGuide = 3; // 绿波引导,一个路口可能上报多个红绿灯的
+        MetadataList metadatas = 4; // 国标场景中，交通参与者信息，此字段携带的信息规划中，当前版本未开发
+    }
+
+    // 如果收到的是绿波消息，可以从该字段获取车辆进入路口和离开路口的信号,key是"intheIntersection",true表示进入路口
+    // false 表示离开路口
+    repeated Extra extra = 5; //附件信息,当某条国标信息需要携带额外信息时,可以放在extra中,该字段可选,可以是多个
+}

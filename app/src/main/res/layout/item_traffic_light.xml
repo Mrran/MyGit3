@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="1dp"
+    android:paddingRight="1dp">
+
+    <RelativeLayout
+        android:id="@+id/rlyt_bg_lane"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp">
+
+        <RelativeLayout
+            android:id="@+id/rlyt_light"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@mipmap/trafficlight_bg_yellow">
+
+            <ImageView
+                android:id="@+id/iv_light"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="2dp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="58dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:paddingBottom="0dp"
+            android:layout_marginTop="-2dp"
+            android:layout_below="@id/rlyt_light"
+            android:textColor="@color/traffic_light_yellow"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llyt_green"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="-8dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="绿波速度"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/tv_green_speed"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="3dp"
+            android:gravity="right"
+            android:textColor="@color/traffic_light_green"
+            android:textSize="16sp"
+            android:textStyle="italic|bold" />
+
+        <!--<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="km/h"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="italic|bold" />-->
+
+    </LinearLayout>
+
+
+</LinearLayout>

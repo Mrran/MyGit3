@@ -1,0 +1,10 @@
+syntax = "proto3";
+// 定义一个位置信息，坐标系 WGS84 大地坐标系
+message Position {
+  //经度
+  double latitude = 1;
+  //纬度
+  double longitude = 2;
+  //海拔
+  double altitude = 3;
+}

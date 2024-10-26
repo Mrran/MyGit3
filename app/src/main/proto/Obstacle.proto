@@ -1,0 +1,15 @@
+syntax = "proto3";
+import "Position.proto";
+//障碍物信息
+message Obstacle {
+    // 障碍物类型,1.机动车;2.非机动车(电动车,自行车等);3.行人;
+    int32 type = 1;
+    // 障碍物位置,可选
+    Position position = 2;
+    // 障碍物危险级别,可选
+    int32 priority = 3;
+    //障碍物速度,可选
+    float speed = 4;
+    // 航向角
+    int32 heading = 5;
+}

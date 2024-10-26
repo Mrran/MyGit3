@@ -1,0 +1,17 @@
+syntax = "proto3";
+import "Extra.proto";
+  //路牌信息
+  message Guidepost {
+    enum Type {
+        SPEED_LIMIT = 0; //限速
+        ROAD_WORKS = 1; //道路施工
+        DANGEROUS = 2; //危险预警
+        SLOW_DOWN_TO_GIVE_WAY = 3;// 减速让行
+        WATCH_FOR_CHILDREN = 4; //注意儿童
+        NO_PARKING = 5; //禁止停车
+        JD_TRAFFIC_INCIDENTS = 6; //国标交通部消息类型
+
+    }
+    Type type = 1; //路牌类型
+    repeated  Extra extra = 2; //附加的参数信息,比如限速,限速信息可以从这里获取
+}

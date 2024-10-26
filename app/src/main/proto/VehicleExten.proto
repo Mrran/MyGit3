@@ -1,0 +1,98 @@
+syntax = "proto3";
+// 车辆扩展消息
+message VehicleExten {
+    SafelyExtensions safelyExtensions = 1;
+    EmergencyExtensions emergencyExtensions = 2;
+}
+
+message SafelyExtensions{
+    ExteriorLights exteriorLights = 1;
+    VehicleEventFlags vehicleEventFlags = 2;
+}
+
+// 外部照明灯状态
+message ExteriorLights {
+    // 近光前照灯开
+    bool lowBeamHeadlightsOn = 1;
+    // 远光前照灯开
+    bool highBeamHeadlightsOn = 2;
+    // 左转向信号灯开
+    bool leftTurnSignalOn = 3;
+    // 右转向信号灯开
+    bool rightTurnSignalOn = 4;
+    // 双闪灯开
+    bool hazardSignalOn = 5;
+    // 自动灯光开
+    bool automaticLightControlOn = 6;
+    // 日光灯开
+    bool daytimeRunningLightsOn = 7;
+    // 雾灯开
+    bool foglightOn = 8;
+    // 停车指示灯开
+    bool parkingLightsOn = 9;
+}
+
+// 车辆事件标志
+message VehicleEventFlags {
+    // 车辆警示灯亮起
+    bool eventHazardLights = 1;
+    // 车辆在到达路口前预测自己可能会来不及刹车而越过停止线
+    bool eventStopLineViolation = 2;
+    // ABS系统被触发并超过100毫秒
+    bool eventABSactivated = 3;
+    // 电子系统控制牵引力被触发并超过100毫秒
+    bool eventTractionControlLoss = 4;
+    // 车身稳定控制被触发并超过100毫秒
+    bool eventStabilityControlactivated = 5;
+    // 危险品运输车
+    bool eventHazardousMaterials = 6;
+    // 保留字段
+    bool eventReservedl = 7;
+    // 车辆急刹车,并且减速度大于0.4G
+    bool eventHardBraking = 8;
+    // 过去2秒内，车灯状态改变 
+    bool eventLightsChanged = 9;
+    // 过去2秒内, 车辆雨刷（前窗或后窗）状态改变
+    bool eventWipersChanged = 10;
+    // 车辆发现至少1个轮胎爆了
+    bool eventFlatTire = 11;
+    // 车辆故障无法行驶
+    bool eventDisabledVehicle = 12;
+    // 至少1个安全气囊弹出
+    bool eventAirBagDeployment = 13;
+}
+
+message EmergencyExtensions {
+
+    enum ResponseType {
+        notInUseOrNotEquipped = 0;
+        emergency = 1;
+        nonEmergency = 2;
+        pursuit = 3;
+        stationary = 4;
+        showMoving = 5;
+        stopAndGoMovement = 6;
+    }
+
+    enum SirenInUse {
+        sirenUnavailable = 0;
+        sirenNotInUse = 1;
+        sirenUse = 2;
+        sirenReserved = 3;
+    }
+
+    enum LightbarInUse {
+         unavailable = 0;
+         notInUse = 1;
+         inUse = 2;
+         yellowCautionLights = 3;
+         schoolBusLights = 4;
+         arrowSignActive = 5;
+         showMovingVehicle = 6;
+         freqStops = 7;
+    }
+
+    ResponseType responseType = 1;
+    SirenInUse   sirenInUse = 2;
+    LightbarInUse lightbarInUse = 3;
+}

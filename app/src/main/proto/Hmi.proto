@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+import "Vehicle.proto";
+import "DriveState.proto";
+import "TrafficLight.proto";
+import "Obstacle.proto";
+import "Information.proto";
+import "NationalStandard.proto";
+import "StationInformation.proto";
+import "TrafficParticipant.proto";
+
+
+message Hmi {
+    //定义消息枚举类
+    enum DataType {
+        UNKNOWN = 0;
+        VEHICLE = 1; //车辆信息
+        TRAFFIC_LIGHT = 2; //红绿灯信息
+        OBSTACLE = 3; //障碍物信息
+        INFORMATION = 4; //语音提示信息
+        DRIVE_STATE = 5; //驾驶状态信息
+        NATIONAL_STANDARD = 6; //国标场景信息
+        ROADSIDE_NOTIFICATION = 7; //高速场景
+        STATION_INFORMATION = 8; //站点实时信息
+        TRAFFIC_PARTICIPANTS = 9; //主车周围交通参与者信息 
+    }
+
+    //消息类型
+    DataType type = 1;
+    //消息序列号
+    int32 id = 2;
+
+    oneof message {
+        //车辆信息
+        Vehicle vehicle = 3;
+        //红绿灯信息
+        TrafficLight trafficLight = 4;
+        //障碍物信息
+        Obstacle obstacle = 5;
+        //驾驶状态消息
+        DriveState driveState = 6;
+        //语音提示消息
+        Information information = 7;
+        //国标信息
+        NationalStandard nationalStandard = 8;
+        //高速场景，具体内容参照文档"RoadSideNotification-数据结构.docx"
+        string RoadSideNotification = 9;
+        //实时站点信息
+        StationInformation stationInformation = 10;
+        //车辆周围交通参与者信息
+        TrafficParticipants pcts = 11;
+    }
+}
+
+

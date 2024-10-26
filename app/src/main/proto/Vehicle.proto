@@ -1,0 +1,24 @@
+//车辆消息
+syntax = "proto3";
+import "Position.proto";
+import "VehicleExten.proto";
+message Vehicle {
+    //字段车辆id,建议使用完整车牌号
+    string uuid = 1;
+    //是否表示当前车辆
+    bool isSelf = 2;
+    //车辆品牌 "0" 表示金龙, "1" 表示牧越,"3" autoTalk,"4" 京东无人车
+    string brand = 3;
+    //车辆位置信息
+    Position position = 4;
+    // RTK状态 
+    int32 rtkStatue = 5;
+    // 车辆行驶速度,千米/时
+    float speed = 6;
+    // 车辆航向角,正北为0，顺时针方向0-360
+    float heading = 7;
+    //公交车门状态："0"表示车门全部关闭，"1"表示 1 号车门开启，"2"表示 2 号车门开启，"3" 表示所有车门均开启
+    int32 selfCarDoorState = 8;
+    // 车辆扩展消息
+    VehicleExten vehicleExten = 9;
+}

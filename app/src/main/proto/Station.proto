@@ -1,0 +1,12 @@
+syntax = "proto3";
+import "Extra.proto";
+import "Position.proto";
+// 站点信息 
+message Station{
+  // 站点id
+  int32 id = 1;
+  // 站点位置信息
+  Position position = 3;
+  // 附加信息,可选
+  repeated Extra extra = 4;
+}
